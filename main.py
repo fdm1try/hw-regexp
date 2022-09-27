@@ -163,7 +163,7 @@ class Phonebook:
             self.conflicts.append(PhonebookConflict(self, duplicate, contact))
             return False
         if duplicate := self._hash.get(contact.last_name + contact.first_name):
-            if (not duplicate.surname) or (not contact.surname) or duplicate.surname == contact.surname:
+            if not duplicate.surname or not contact.surname or duplicate.surname == contact.surname:
                 self.conflicts.append(PhonebookConflict(self, duplicate, contact))
                 return False
         self._list.append(contact)
